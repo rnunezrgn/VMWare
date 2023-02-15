@@ -1,5 +1,5 @@
 ---
-- name: create vm demo
+- name: Create VM from scratch for a demo
   hosts: localhost
   become: false
   gather_facts: false
