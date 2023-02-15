@@ -10,7 +10,7 @@
     datacenter_name: ""
     sample_vm_folder: ""
     vm_folder_type: "" # datastore, host, network, vm (default)
-    vm_folder_state: "" # present=create, absent=destroy
+    vm_folder_state: "" # present=create, absent=destroy.S
 
   tasks:
   - name: Create a VM folder on given datacenter
