@@ -1,4 +1,5 @@
 ---
+- name: Get facts from vCenter
   hosts: localhost
   gather_facts: false
   vars:
