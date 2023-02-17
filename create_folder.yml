@@ -15,9 +15,9 @@
   tasks:
   - name: Create a VM folder on given datacenter
     vcenter_folder:
-      hostname: "{{ VMWARE_HOST }}"
-      username: "{{ VMWARE_USER }}"
-      password: "{{ VMWARE_PASSWORD }}"
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
       datacenter: "{{ datacenter_name }}"
       folder_name: "{{ sample_vm_folder }}"
       folder_type: "{{ vm_folder_type }}"
