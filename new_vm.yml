@@ -12,7 +12,7 @@
     vm_name: ''
     size_gb: '10'
     num_cpus: '1'
-    memory_db: '512'
+    memory_mb: '512'
     template: ''
     guest_domain: ''
     vm_password: ''
