@@ -18,6 +18,7 @@
     vm_password: ''
     vm_network: 'segment-sandbox-vlsrc' # NIC 1 network	segment-sandbox-vlsrc (vmc-hostswitch)
     state: ''
+    esxi_server: '35.172.46.67'
   
   tasks: 
     - name: Clone a virtual machine from Linux template and customize
@@ -26,6 +27,7 @@
         datacenter: "{{ DC_name }}"
         folder: "Workloads/sandbox-vlsrc"
         template: "{{ template }}"
+        esxi_hostname: "{{ esxi_server }}"
         validate_certs: no
         name: "{{ vm_name }}"
         state: poweredon
