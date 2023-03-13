@@ -10,11 +10,13 @@
     esxi_server: ''
     DC_name: ''
     vm_name: ''
-    size_gb: ''
+    size_gb: '10'
+    num_cpus: '1'
+    memory_db: '512'
     template: ''
     guest_domain: ''
     vm_password: ''
-    vm_network: ''
+    vm_network: 'segment-sandbox-vlsrc' # NIC 1 network	segment-sandbox-vlsrc (vmc-hostswitch)
     state: ''
   
   tasks: 
@@ -36,7 +38,7 @@
           num_cpus: "{{ num_cpus }}"
           memory_mb: "{{ memory_mb }}"
         networks:
-          - name: "{{vm_network}}"
+          - name: "{{ vm_network }}"
             type: dhcp
             connected: true
             start_connected: true
