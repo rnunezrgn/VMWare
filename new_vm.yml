@@ -46,6 +46,7 @@
           domain: "lab.test"
           dns_servers:
             - 4.2.2.2
+      delegate_to: localhost
       register: deploy_vm
 
     - name: look at VM register
