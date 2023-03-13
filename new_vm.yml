@@ -1,0 +1,59 @@
+---
+- name: Create a virtual machine on vSphere
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    vcenter_ip: ''
+    vcenter_username: ''
+    vcenter_password: ''
+    esxi_server: ''
+    DC_name: ''
+    vm_name: ''
+    size_gb: ''
+    template: ''
+    guest_domain: ''
+    vm_password: ''
+    vm_network: ''
+    state: ''
+  
+  tasks: 
+    - name: Clone a virtual machine from Linux template and customize
+      community.vmware.vmware_guest:
+        hostname: "{{ vcenter_ip }}"
+        datacenter: "{{ DC_name }}"
+        folder: "Workloads/sandbox-vlsrc"
+        template: "{{ template }}"
+        validate_certs: false
+        name: "{{ vm_name }}"
+        state: poweredon
+        wait_for_ip_address: true
+        disk:
+        - size_gb: "{{ size_gb }}"
+          type: thin
+          datastore: USB-Stick
+        hardware:
+          num_cpus: "{{ num_cpus }}"
+          memory_mb: "{{ memory_mb }}"
+        networks:
+          - name: "{{vm_network}}"
+            type: dhcp
+            connected: true
+            start_connected: true
+        customization:
+          domain: "lab.test"
+          dns_servers:
+            - 4.2.2.2
+      register: deploy_vm
+
+    - name: look at VM register
+      debug:
+        var: deploy_vm
+
+    - name: Wait for SSH to come up
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: 22 
+        delay: 90 
+        timeout: 320 
+        state: started
