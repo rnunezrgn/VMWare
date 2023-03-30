@@ -25,7 +25,7 @@
       community.vmware.vmware_guest:
         hostname: "{{ vcenter_ip }}"
         datacenter: "{{ DC_name }}"
-        folder: "Workloads/sandbox-vlsrc"
+        folder: "Workloads/sandbox-pvm7h"
         template: "{{ template }}"
         esxi_hostname: "{{ esxi_server }}"
         validate_certs: no
