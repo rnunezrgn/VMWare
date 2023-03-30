@@ -18,7 +18,7 @@
     vm_password: ''
     vm_network: 'segment-sandbox-vlsrc' # NIC 1 network	segment-sandbox-vlsrc (vmc-hostswitch)
     state: ''
-    esxi_server: '35.172.46.67'
+    esxi_server: '3.226.246.111'
   
   tasks: 
     - name: Clone a virtual machine from Linux template and customize
