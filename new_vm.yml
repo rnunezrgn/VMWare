@@ -4,7 +4,7 @@
   connection: local
   gather_facts: no
   vars:
-    vcenter_ip: ''
+    vcenter_ip: '3.226.246.111'
     vcenter_username: ''
     vcenter_password: ''
     esxi_server: ''
